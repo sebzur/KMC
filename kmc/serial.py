@@ -21,7 +21,7 @@ class SerialMC(object):
     def run(self, steps, smpl_classes, **kwargs):
         samplers = [cls(steps, **kwargs) for cls in smpl_classes]
         walker = self.system(**kwargs)
-        for step in range(steps):
+        for step in xrange(steps):
             dt = walker.get_lifetime(**kwargs)
             old_cfg = copy.deepcopy(walker)
             walker.reconfigure()
